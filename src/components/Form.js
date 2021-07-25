@@ -1,5 +1,5 @@
 import React from 'react';
-import nextId from "react-id-generator";
+import { v4 as uuidv4 } from 'uuid';
 
 const Form = ({ todos, setTodos, setInputText, inputText, setStatus}) => {
     //function for the input text state.
@@ -11,7 +11,7 @@ const Form = ({ todos, setTodos, setInputText, inputText, setStatus}) => {
         e.preventDefault();
         
         setTodos([
-            ...todos, { text: inputText, complete: false, id: nextId() }
+            ...todos, { text: inputText, complete: false, id: uuidv4() }
         ]);
 
         setInputText("");
